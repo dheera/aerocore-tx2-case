@@ -22,6 +22,7 @@ difference() {
     translate([0,0,6])
     cube([2*L,19,8],center=true);
     }
+    
     translate([0,0,7.5])
     cube([2*L,15,3],center=true);
     
@@ -29,7 +30,7 @@ difference() {
     cube([2*L,15,36],center=true);
     
     translate([0,-34,36])
-    cube([L,20,42],center=true);
+    cube([L+ (THICK-1.5)*2,20,42],center=true);
 }
 
 difference() {
