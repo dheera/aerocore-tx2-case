@@ -1,6 +1,6 @@
-L=158 ;
-W=116;
-H=1.5;
+L=157 ;
+W=115;
+H=2;
 
 bW=85;
 bL=135;
@@ -11,8 +11,6 @@ hL=110;
 difference() {
     translate([-L/2+0.1,-W/2+0.1,0])
     cube([L-0.2,W-0.2,H]);
-   
-    through_holes();
     
     button_holes();
     comm_holes();
@@ -20,7 +18,7 @@ difference() {
     
     side_cutouts();
 }
-translate([0,0,1.5]) {
+translate([0,0,2]) {
     translate([-12,-39,0])
     rotate([0,0,90])
     gpsantenna();
@@ -37,7 +35,7 @@ translate([0,0,1.5]) {
     rotate([0,0,90])
     antenna(aL=70.7,aW=20.7);
     
-    translate([0,47,0])
+    translate([0,45.5,0])
     rotate([0,0,0])
     antenna(aL=70.7,aW=20.7);
     
@@ -87,16 +85,16 @@ module imu() {
     rotate([0,0,90]) {
     
     translate([-imuW/2 + 0.1*25.4, -imuL/2 + 0.1*25.4, 0])
-    standoff(h=standoff_height);
+    standoff();
     
     translate([-imuW/2 + 0.95*25.4, -imuL/2 + 0.1*25.4, 0])
-    standoff(h=standoff_height);
+    standoff();
     
     translate([-imuW/2 + 0.1*25.4, -imuL/2 + 0.7*25.4, 0])
-    standoff(h=standoff_height);
+    standoff();
     
     translate([-imuW/2 + 0.95*25.4, -imuL/2 + 0.7*25.4, 0])
-    standoff(h=standoff_height);
+    standoff();
 }
 }
 
@@ -203,7 +201,7 @@ module support() {
 
 module standoff() {
     difference() {
-        cylinder(d=4,h=4,$fn=32);
+        cylinder(d1=5,d2=4,h=4,$fn=32);
         cylinder(d=1.5,h=6,$fn=32);
     }
 }

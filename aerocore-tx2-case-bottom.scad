@@ -33,6 +33,48 @@ difference() {
     cube([L+ (THICK-1.5)*2,20,42],center=true);
 }
 
+translate([L/2+THICK,W/2+THICK/2,0])
+rotate([0,0,180])
+triangle3();
+translate([L/2+THICK,-W/2-THICK/2,0])
+rotate([0,0,180])
+triangle3();
+translate([-L/2-THICK,W/2+THICK/2,0])
+rotate([0,0,0])
+triangle3();
+translate([-L/2-THICK,-W/2-THICK/2,0])
+rotate([0,0,0])
+triangle3();
+
+translate([L/2,7.5,0])
+triangle();
+translate([L/2,-7.5,0])
+triangle();
+translate([-L/2,-34-24/2,0])
+rotate([0,0,180])
+triangle2();
+translate([-L/2,-34+24/2,0])
+rotate([0,0,180])
+triangle2();
+
+module triangle() {
+rotate([0,-90,90])
+linear_extrude(height = THICK, center = true, convexity = 10, twist = 0)
+polygon(points=[[0,0],[45,0],[0,11.5]]);
+}
+
+module triangle2() {
+rotate([0,-90,90])
+linear_extrude(height = THICK, center = true, convexity = 10, twist = 0)
+polygon(points=[[0,0],[45,0],[0,4]]);
+}
+
+module triangle3() {
+rotate([0,-90,90])
+linear_extrude(height = THICK, center = true, convexity = 10, twist = 0)
+polygon(points=[[0,0],[45,0],[0,8]]);
+}
+
 difference() {
     union() {
         translate([L/2,-W/2-THICK,0])
@@ -140,7 +182,7 @@ difference() {
     }
     
     translate([THICK,0,THICK+2*THICK])
-    cube([L,W-16,6],center=true);
+    cube([L,W-16,4*THICK],center=true);
     
     translate([-L/2+THICK,-W/2+THICK,THICK])
     cube([L-2*THICK,W-2*THICK,H]);
@@ -245,13 +287,16 @@ standoff(d=6,h=5.5);
 
 module comm_supports() {
 translate([-L/2+4,-W/2+4,0])
-support();
+support2();
 translate([-L/2+4,W/2-4,0])
-support();
+    rotate([0,0,180])
+support2();
 translate([L/2-4,-W/2+4,0])
-support();
+support2();
 translate([L/2-4,W/2-4,0])
-support();
+    
+    rotate([0,0,180]) 
+support2();
 translate([L/4-2,-W/2+4,0])
 support();
 translate([-L/4+2,-W/2+4,0])
@@ -266,6 +311,19 @@ module support() {
     difference() {
         translate([-4,-4])
         cube([8,8,31]);
+        cylinder(d=4.7,h=40,$fn=32);
+    }
+}
+
+module support2() {
+    difference() {
+        translate([-4,-4])
+        cube([8,8,31]);
+        translate([0,0,25])
+        cylinder(d=4.7,h=40,$fn=32);
+        
+        translate([0,0,6])
+        rotate([90,0,0])
         cylinder(d=4.7,h=40,$fn=32);
     }
 }
