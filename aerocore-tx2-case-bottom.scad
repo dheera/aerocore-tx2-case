@@ -72,7 +72,7 @@ module fanvent() {
     translate([-30/2-3.5/2,-68.5/2-3.5,0]) {
     for (i = [0:6:30]) {
         for (j = [0:6:60]) {
-            translate([i,j,0])
+            translate([i,j,-15])
             cube([3.5,3.5,30]);
         }
     }
