@@ -1,6 +1,8 @@
-L=158;
-W=116;
+L=157;
+W=115;
 H=5;
+
+THICK = 2.0;
 
 bW=85;
 bL=135;
@@ -9,11 +11,11 @@ hW=100;
 hL=110;
 
 difference() {
-    translate([-L/2-1.5,-W/2-1.5,0])
-    cube([2,W+3,45]);
+    translate([-L/2-THICK,-W/2-THICK,0])
+    cube([THICK,W+2*THICK,45]);
 
     difference() {
-    translate([-L/2-1.5,18,22.5])
+    translate([-L/2-THICK,18,22.5])
     rotate([0,90,0])
     fanvent();
         
@@ -32,11 +34,11 @@ difference() {
 
 difference() {
     union() {
-        translate([L/2-.5,-W/2-1.5,0])
-        cube([2,W+3,45]);
+        translate([L/2,-W/2-THICK,0])
+        cube([THICK,W+2*THICK,45]);
         
-        translate([L/2-1.5,-17/2,0])
-        cube([3,17,33]);
+        translate([L/2-THICK,-17/2,0])
+        cube([2*THICK,17,33]);
     }
     
     translate([L/2-.5,29,22.5])
@@ -47,18 +49,7 @@ difference() {
     rotate([0,90,0])
     fanholes40();
     
-    /*
-    translate([L/2,32,22.5])
-    rotate([0,90,0])
-    fanholes();
-    translate([L/2,0,22.5])
-    rotate([0,90,0])
-    fanholes();
-    translate([L/2,-32,22.5])
-    rotate([0,90,0])
-    fanholes();*/
-    
-    translate([0,0,3])
+    translate([0,0,2*THICK])
     cube([2*L,13,7],center=true);
     
     translate([0,0,13])
@@ -140,37 +131,37 @@ difference() {
     translate([-L/2,-W/2,0])
     cube([L,W,H]);
     
-    translate([-L/2-1.5,-W/2-1.5,0])
-    cube([L+3,W+3,1.5]);
+    translate([-L/2-THICK,-W/2-THICK,0])
+    cube([L+2*THICK,W+2*THICK,THICK]);
         
-    translate([0,0,1.5/2])
-    cube([L+20,W+3,1.5],center=true);
+    translate([0,0,THICK/2])
+    cube([L+20,W+2*THICK,THICK],center=true);
     }
     
-    translate([1.5,0,1.5+3])
+    translate([THICK,0,THICK+2*THICK])
     cube([L,W-16,6],center=true);
     
-    translate([-L/2+1.5,-W/2+1.5,1.5])
-    cube([L-3,W-3,H]);
+    translate([-L/2+THICK,-W/2+THICK,THICK])
+    cube([L-2*THICK,W-2*THICK,H]);
 
     inside_mount_holes();
     through_holes();
     button_holes();
 }
 
-translate([-5,0,1.5])
+translate([-5,0,THICK])
 aerocore_standoffs();
 
-translate([0,0,1.5])
+translate([0,0,THICK])
 comm_supports();
 
-        translate([0,0,1.5])
+        translate([0,0,THICK])
         button_tubes();
 
 power_connector();
 
 module power_connector() {
-    translate([L/2+1.5,0,1.5+9.5/2-2.0])
+    translate([L/2+THICK,0,THICK+9.5/2-2.0])
     translate([-11/2,0,0])
     difference() {
         cube([11,14.8,8.5], center=true);
