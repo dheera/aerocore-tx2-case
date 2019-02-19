@@ -1,0 +1,1 @@
+import("aerocore-tx2-case-bottom.stl", convexity=3);

@@ -289,7 +289,7 @@ module comm_supports() {
 translate([-L/2+4,-W/2+4,0])
 support2();
 translate([-L/2+4,W/2-4,0])
-    rotate([0,0,180])
+rotate([0,0,180])
 support2();
 translate([L/2-4,-W/2+4,0])
 support2();
