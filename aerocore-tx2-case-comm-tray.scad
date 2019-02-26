@@ -125,15 +125,15 @@ module antenna(aW=15, aL=50) {
 
 
 
-translate([-76.2,0,0])
+translate([-75.75,0,0])
 ridge();
 
-translate([65,0,0])
+translate([64.25,0,0])
 ridge();
 
 module ridge() {
     intersection() {
-        translate([0,0,-800/2+4.5])
+        translate([0,0,-800/2+5.1])
         rotate([0,90,0])
         cylinder(d=800,h=1.5,center=true,$fn=256);
         
@@ -163,13 +163,25 @@ module tx2_hole() {
 }
 
 module button_holes() {  
-    translate([79.7-bL/2-5,13.3-bW/2,0])
-    cylinder(d=6,h=5,$fn=32);
-    translate([79.7-bL/2-5+15,13.3-bW/2,0])
-    cylinder(d=6,h=5,$fn=32);
     
-    translate([77.7-bL/2-5,17.3-bW/2,0])
-    cube([19,5,5]);
+    /*
+    translate([79.7-bL/2-5+15/2,13.3-bW/2,0])
+    cube([18,6,5], center=true); // 
+    
+    translate([79.7-bL/2-5,13.3-bW/2,0])
+    cube([6,6,5], center=true); // cylinder(d=6,h=5,$fn=32);
+    
+    translate([79.7-bL/2-5+15,13.3-bW/2,0])
+    cube([6,6,5], center=true); //(d=6,h=5,$fn=32);
+    
+    translate([77.7-bL/2-5,17.3-bW/2-1,0])
+    cube([19,6,5]);
+    
+    */
+    
+    translate([75.5-bL/2-5,10-bW/2-1,0])
+    cube([23,14,5]);
+    
 }
 
 module comm_holes() {
