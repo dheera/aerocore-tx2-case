@@ -10,6 +10,7 @@ Case for Aerocore 2 for Jetson TX2 with mount points for GPS, IMU, LTE antennas
 * [GY-GPSV3-M8T GPS](https://www.amazon.com/Wal-front-GY-GPSV3-M8T-Receiver-Compatible/dp/B07G151KN4/)
 * [Adafruit BNO055 breakout](https://www.adafruit.com/product/2472)
 * [Evercool EC4010M05CA 40mm X 10mm Ballbearing Fan, 5V, 3Pin](http://www.evercoolusa.com/?p=685)
+* [Sierra HL7688](https://www.sierrawireless.com/products-and-solutions/embedded-solutions/products/hl7688/) for Google Fi
 
 ![Picture](https://raw.githubusercontent.com/dheera/aerocore-tx2-case/master/aerocore0.jpg "Picture")
 
