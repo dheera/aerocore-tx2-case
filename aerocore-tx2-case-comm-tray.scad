@@ -27,11 +27,11 @@ translate([0,0,2]) {
     rotate([0,0,90])
     gps();
     
-    translate([45,-35,0])
+    translate([48,-35,0])
     rotate([0,0,90])
     imu();
     
-    translate([-63,15,0])
+    translate([-62.5,15,0])
     rotate([0,0,90])
     antenna(aL=70.7,aW=20.7);
     
@@ -125,7 +125,7 @@ module antenna(aW=15, aL=50) {
 
 
 
-translate([-75.75,0,0])
+translate([-74.75,0,0])
 ridge();
 
 translate([64.25,0,0])
@@ -145,10 +145,8 @@ module ridge() {
 module side_cutouts() {
     translate([L/2,0,0])
         cube([27,W-16,5], center=true);
-        cylinder(d=8,h=0.0001);
     translate([-L/2,0,0])
-        cube([4,W-16,5], center=true);
-        cylinder(d=8,h=0.0001);
+        cube([7,W-16,5], center=true);
 }
 
 module tx2_hole() {
@@ -213,7 +211,7 @@ module support() {
 
 module standoff() {
     difference() {
-        cylinder(d1=5,d2=4,h=4,$fn=32);
+        cylinder(d1=5,d2=4,h=2,$fn=32);
         cylinder(d=1.5,h=6,$fn=32);
     }
 }
